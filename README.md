@@ -17,8 +17,6 @@ os: win32 x64
 @angular/cli: 1.0.2
 @angular/compiler-cli: 4.4.6
 
-I tried to complete most of the requirements you outlined but I wanted to finish it early to speed up the interview process so did not get to write extensive integrated / UI tests. I did write basic unit tests to test for common/edge cases. I also did not focus alot on fancy animations in order to be able to complete the functionality,tests and documentation properly. 
-
 Below are the instructions to launch the game and run the tests. 
 
 -------------------------------------------------------------------------------------------
@@ -45,23 +43,33 @@ Below are the unit tests that I wrote to try and cover some of the common cases;
 
 GameLogicService
 	should set correct counter when method checkNeightbors is called and no recursions are made
-	should set correct counter when method checkNeightbors is called on a corner square
-	should call checkNeightbors recursively correct number of times if empty square
-	should return false when method checkIfColumnInBoard is called with out of board column
-	should return false when method checkIfRowInBoard is called with out of board column
+  should set correct counter when method checkNeightbors is called on a corner square
+  should call checkNeightbors recursively correct number of times if empty square
+  should return false when method checkIfColumnInBoard is called with out of board column
+  should return false when method checkIfRowInBoard is called with out of board column
 MinesweeperComponent
-	should initialize values correctly when method setupGame is called
-	should call method prepareBoard when method setupGame is called
-	should set values correctly when method restartGame is called
-	should set mineLocations correctly when method prepareBoard is called
+  should initialize values correctly when method setupGame is called
+  should call method prepareBoard when method setupGame is called
+  should set values correctly when method restartGame is called
+  should set mineLocations correctly when method prepareBoard is called
 ErrorHandlerService
-	should return true if any value less than or equal to zero
-	should return set correct error message if any value less than or equal to zero
-	should return true if more mines than squares
-	should return set correct error message if more mines that squares	
-	
---------------------------------------------------------------------------------------------
+  should return true if any value less than or equal to zero
+  should return set correct error message if any value less than or equal to zero
+  should return true if more mines than squares
+  should return set correct error message if more mines that squares	
+  
+  --------------------------------------------------------------------------------------------
 STRUCTURE OF THE CODE:
+
+I created a separate module minesweeper which is imported by the main appmodule, to keep all of the minesweeper related components/services etc.
+The two main data classes in the app are Board which has properties of the whole board and Square which has the properties of a single square.
+The component minesweeper deals with the template showing the game grid, while the component sidebar shows the score and allows you to change game settings.
+Since sidebar is a child element of minesweeper, data is shared between them using the Input and Output features of angular components. 
+The service game-logic handles all the game logic and the service error-handler handles all the errors. 
+
+With this architecture I tried to separate concerns and ensure that components were kept as simple as possible with all the logic being handled by 
+appropriate services. This leads to a code that is easily readable, testable and scalable. To keep the interface as simple as possible I did not 
+use any external packages not included in a basic Angular project already. 
 
 src/app/core: Contains the parts of the app that are necessary for the correct functionality of the whole app
 		repeat.pipe: A pipe I used to repeat the squares in the grid a given number of times
