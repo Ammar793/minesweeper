@@ -1,4 +1,4 @@
-README
+## README
 
 This version of minesweeper is built using Angular 4, and has only been properly tested on Google Chrome. The versions of the core softwares/libraries used to build the app are; 
 
@@ -21,20 +21,20 @@ Below are the instructions to launch the game and run the tests.
 
 ------------------------------------------------------------------------------------------- 
 
-TO SIMPLY PLAY THE GAME: 
+### TO SIMPLY PLAY THE GAME: 
 
 The app is located in the folder 'dist' in the root directory. \
 To launch the app, open the 'index.html' file in browser (preferably Google Chrome).\
 If, for any reason the app does not launch properly from your local computer, I uploaded it to aws so you can also access it at http://minesweeperviv.s3-website-us-west-2.amazonaws.com/ \
 
 -------------------------------------------------------------------------------------------- \
-TO RUN THROUGH ANGULAR CLI: 
+### TO RUN THROUGH ANGULAR CLI: 
 
 In command prompt in root directory run the following command "npm install" followed by "ng serve --port 4200". \ 
 This will run the app on port 4200, and you can access it by going to localhost:4200\
 
 -------------------------------------------------------------------------------------------- \
-TO RUN THE TESTS:
+### TO RUN THE TESTS:
 
 In command prompt in root directory run the following command "npm install" followed by "ng test". \
 This should open your browser and run the tests. 
@@ -59,7 +59,7 @@ ErrorHandlerService\
   should return set correct error message if more mines that squares	
   
   -------------------------------------------------------------------------------------------- \
-STRUCTURE OF THE CODE: 
+### STRUCTURE OF THE CODE: 
 
 I created a separate module minesweeper which is imported by the main appmodule, to keep all of the minesweeper related components/services etc. \
 The two main data classes in the app are Board which has properties of the whole board and Square which has the properties of a single square. \
